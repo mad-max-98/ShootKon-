@@ -12,14 +12,19 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      
+        
+        
+    }
+
+    private void OnEnable()
+    {
         tr = GetComponent<Transform>();
         //if ( Input.GetKey(KeyCode.N))
         //{
-            Debug.Log("Enemy spawner start!");
-            StartCoroutine(spawnEnemy(timeInterval, randomnessFactor));
+        Debug.Log("Enemy spawner start!");
+        StartCoroutine(spawnEnemy(timeInterval, randomnessFactor));
         //}
-        
-        
     }
 
     // Update is called once per frame

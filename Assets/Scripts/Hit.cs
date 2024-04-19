@@ -18,16 +18,13 @@ public class Hit : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        // if(GameObject.ReferenceEquals( collision.gameObject, myKillerBullet.gameObject))
-        // {
-        //     Debug.Log("Detected");
-        //     Destroy(this.gameObject);
-        // }
         Debug.Log("Detected by enemy");
+        //Bullet is destroyed whether it's color is the same as enemy or not!
+        Destroy(collision.gameObject);
+        //If their colors are the same, then kill the enemy!
         if (collision.gameObject.tag == myKillerBullet.tag)
         {
-            Destroy(collision.gameObject);
+            
             Destroy(this.gameObject);
 
         }

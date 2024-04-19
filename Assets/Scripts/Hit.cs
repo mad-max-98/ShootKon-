@@ -24,7 +24,9 @@ public class Hit : MonoBehaviour
         //If their colors are the same, then kill the enemy!
         if (collision.gameObject.tag == myKillerBullet.tag)
         {
-            
+            //increase player's score
+            ScoreManager.Instance.IncreaseScoreByKillingEnemy();
+            //Vanish the enemy
             Destroy(this.gameObject);
 
         }

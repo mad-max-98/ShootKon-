@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
+public class SpawnersManager : MonoBehaviour
 {
 
     [SerializeField] private List <EnemySpawner> EnemySpawners =  new List <EnemySpawner>();

@@ -8,6 +8,11 @@ public class EnemyController : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float force;
 
+    private void OnEnable()
+    {
+        //subscribe to losing delegate
+        GameStateManager.onLoseGameState += StopMoving;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +29,16 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDisable()
+    {
+        //unsubscribe to losing delegate
+        GameStateManager.onLoseGameState -= StopMoving;
+    }
+
+    void StopMoving ()
+    {
+        rb.velocity = Vector3.zero;
     }
 }

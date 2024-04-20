@@ -16,6 +16,12 @@ public class Shooting : MonoBehaviour
     bool canFire = true;
     public float shootingIntervalTime;
     float timer = 0;
+
+    private void OnEnable()
+    {
+        //subscribe to losing delegate
+        GameStateManager.onLoseGameState += StopPlaying;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -51,5 +57,17 @@ public class Shooting : MonoBehaviour
             canFire = false;
             Instantiate (RedBullet, bulletTransform.position, Quaternion.identity);
         }
+    }
+
+
+    private void OnDisable()
+    {
+        //unsubscribe to losing delegate
+        GameStateManager.onLoseGameState -= StopPlaying;
+    }
+
+    void StopPlaying ()
+    {
+        this.gameObject.SetActive (false);
     }
 }

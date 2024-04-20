@@ -20,6 +20,12 @@ public class SpawnersManager : MonoBehaviour
         activeSpawners = 0;
     }
 
+    private void OnEnable()
+    {
+        //subscribe to losing delegate
+        GameStateManager.onLoseGameState += StopSpawners;
+    }
+
     void Start()
     {
 
@@ -52,5 +58,19 @@ public class SpawnersManager : MonoBehaviour
 
         //Repeat
         StartCoroutine(activateSpawners(activationInterval));
+    }
+
+
+    private void OnDisable()
+    {
+        //unsubscribe to losing delegate
+        GameStateManager.onLoseGameState -= StopSpawners;
+    }
+
+    void StopSpawners ()
+    {
+        StopAllCoroutines();
+        //De-activate any enemy spawner
+        foreach (EnemySpawner item in EnemySpawners) { item.gameObject.SetActive(false); }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -19,6 +20,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
+        //subscribe to losing delegate
+        GameStateManager.onLoseGameState += StopSpawnning;
+
         tr = GetComponent<Transform>();
         //if ( Input.GetKey(KeyCode.N))
         //{
@@ -47,5 +51,16 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(spawnEnemy(interval , randomness));
 
 
+    }
+
+    private void OnDisable()
+    {
+        //unsubscribe to losing delegate
+        GameStateManager.onLoseGameState -= StopSpawnning;
+    }
+
+    void StopSpawnning ()
+    {
+        StopAllCoroutines();
     }
 }

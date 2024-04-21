@@ -44,8 +44,9 @@ public class GameUIManager : MonoBehaviour
         continueButton.gameObject.SetActive (false);
     }
 
-    public void ShowEndGameBanner_StopButton()
+    public void ShowEndGameBanner_PauseButton()
     {
+        score.text = string.Format("Your Score : {0:00000}", ScoreManager.Instance.Score);
         endGameBanner.SetActive(true);
         continueButton.gameObject.SetActive(true);
     }
@@ -57,20 +58,28 @@ public class GameUIManager : MonoBehaviour
 
     //Buttons functionality
 
-    public static void ContinueCurrentLevelGame ()
+    public void ContinueCurrentLevelGame ()
     {
+        HideEndGameBanner ();
+        Time.timeScale = 1.0f;
+    }
 
+    public void PauseCurrentLevelGame ()
+    {
+        Time.timeScale = 0f;
+
+        ShowEndGameBanner_PauseButton();
     }
 
 
-    public static void RestartCurrentScene ()
+    public void RestartCurrentScene ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name );
     }
 
-    public static void LevelsSceneLoad () { }
+    public void LevelsSceneLoad () { }
 
-    public static void HomeSceneLoad () 
+    public void HomeSceneLoad () 
     {
         SceneManager.LoadScene("Home");
     }

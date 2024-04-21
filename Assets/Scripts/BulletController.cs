@@ -5,6 +5,7 @@ using UnityEngine.Pool;
 
 public class BulletController : MonoBehaviour
 {
+    const float lifetime = 30f;
     Camera mainCam;
     Vector3 mousePos;
     Rigidbody2D rb;
@@ -23,6 +24,9 @@ public class BulletController : MonoBehaviour
         Vector3 direction = mousePos - transform.position;
         Vector3 rotation = transform.position - mousePos;
         rb.velocity = new Vector2 (direction.x, direction.y).normalized * force;
+
+        //Self destruct
+        StartCoroutine(selfDestruct());
         
     }
 
@@ -54,9 +58,11 @@ public class BulletController : MonoBehaviour
         return _pool;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator selfDestruct ()
     {
-        
+        yield return new WaitForSeconds(lifetime);
+        _pool.Release(this);
     }
+
 
 }

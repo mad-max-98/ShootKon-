@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class EnemyController : MonoBehaviour
 {
-    Vector3 playerPos;
-    Rigidbody2D rb;
+    private Vector3 playerPos;
+    private Rigidbody2D rb;
     [SerializeField] float force;
+
+    //My pool
+    private ObjectPool<EnemyController> _pool;
+
 
     private void OnEnable()
     {
@@ -35,6 +40,17 @@ public class EnemyController : MonoBehaviour
     {
         //unsubscribe to losing delegate
         GameStateManager.onLoseGameState -= StopMoving;
+    }
+
+    ////pool
+    public void SetPool(ObjectPool<EnemyController> pool)
+    {
+        _pool = pool;
+    }
+
+    public ObjectPool<EnemyController> GetPool()
+    {
+        return _pool;
     }
 
     void StopMoving ()

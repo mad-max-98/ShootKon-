@@ -1717,6 +1717,8 @@ MonoBehaviour:
   - {fileID: 770539896}
   activationInterval: 20
   maximumEnemySpawners: 3
+  blueEnemy: {fileID: -86029853535057886, guid: 27d1d16c39c329948befa2ac63b23b42, type: 3}
+  redEnemy: {fileID: -5416192739401171528, guid: 2d2a3627af1f96643acdba9f520da53f, type: 3}
 --- !u!4 &1072032747
 Transform:
   m_ObjectHideFlags: 0

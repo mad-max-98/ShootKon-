@@ -34,7 +34,7 @@ public class LevelsUIManager : MonoBehaviour
 
     public void Level2ButtonUI()
     {
-        SceneManager.LoadSceneAsync("Level2");
+        //SceneManager.LoadSceneAsync("Level2");
     }
 
 

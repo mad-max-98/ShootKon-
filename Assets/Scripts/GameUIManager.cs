@@ -77,7 +77,10 @@ public class GameUIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name );
     }
 
-    public void LevelsSceneLoad () { }
+    public void LevelsSceneLoad () 
+    {
+        SceneManager.LoadScene("Levels");
+    }
 
     public void HomeSceneLoad () 
     {

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5311337687565721562}
   - component: {fileID: 8732096669260813939}
-  - component: {fileID: 940846289259196563}
   - component: {fileID: 8597336111110667092}
   - component: {fileID: -778679125324629399}
+  - component: {fileID: 940846289259196563}
   m_Layer: 0
   m_Name: BlueBullet
   m_TagString: BlueBullet
@@ -87,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &940846289259196563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4532388680181421910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5703889a0bb1af044bd32b4ef3a2d0f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 5
-  myEnemy: {fileID: 1190648751528808150, guid: 27d1d16c39c329948befa2ac63b23b42, type: 3}
 --- !u!50 &8597336111110667092
 Rigidbody2D:
   serializedVersion: 4
@@ -163,3 +149,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &940846289259196563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4532388680181421910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5703889a0bb1af044bd32b4ef3a2d0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 5
+  myEnemy: {fileID: 1190648751528808150, guid: 27d1d16c39c329948befa2ac63b23b42, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class BulletController : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class BulletController : MonoBehaviour
     Rigidbody2D rb;
     public float force;
     public GameObject myEnemy;
+
+    //My pool
+    private ObjectPool<BulletController> _pool;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +37,21 @@ public class BulletController : MonoBehaviour
         Debug.Log("Detected by bullet");
         if (collision.gameObject.tag == myEnemy.tag)
         {
-            
-            Destroy(this.gameObject);
+
+            //Destroy(this.gameObject);
+            _pool.Release(this);
         }
 
+    }
+
+    public void SetPool (ObjectPool<BulletController> pool)
+    {
+        _pool = pool;
+    }
+
+    public ObjectPool<BulletController> GetPool ()
+    {
+        return _pool;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

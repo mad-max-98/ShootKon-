@@ -3092,8 +3092,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 519420031}
-  BlueBullet: {fileID: 4532388680181421910, guid: 0ec129e6ecfd2cf499da1116281a3d29, type: 3}
-  RedBullet: {fileID: 4532388680181421910, guid: 75ee8790c09aa0f4ea5ece8632645dde, type: 3}
+  BlueBullet: {fileID: 940846289259196563, guid: 0ec129e6ecfd2cf499da1116281a3d29, type: 3}
+  RedBullet: {fileID: 697830874587038628, guid: 75ee8790c09aa0f4ea5ece8632645dde, type: 3}
   bulletTransform: {fileID: 203239259}
   shootingIntervalTime: 0.2
 --- !u!1 &2133274569

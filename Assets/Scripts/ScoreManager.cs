@@ -20,7 +20,7 @@ public class ScoreManager : MonoBehaviour
 
     public TextMeshProUGUI scoreUIText;
 
-    //Player current Score
+    //Player's Score in current play
     public float Score { get; private set; }
 
     public void IncreaseScoreByKillingEnemy ()
@@ -43,6 +43,10 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.S))
+        {
+            try { Debug.Log("Level 1 Highscore : " + PlayerPrefs.GetFloat("Level1Highscore"));  } catch { }
+            
+        }
     }
 }

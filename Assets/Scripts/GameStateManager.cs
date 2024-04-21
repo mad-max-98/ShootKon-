@@ -20,7 +20,7 @@ public class GameStateManager : MonoBehaviour
     void Start()
     {
         //Avoiding to be null
-        onLoseGameState += TempFunction;
+        onLoseGameState += UpdateLevel1Highscore;
     }
 
     // Update is called once per frame
@@ -29,8 +29,26 @@ public class GameStateManager : MonoBehaviour
         
     }
 
-    void TempFunction ()
+    void UpdateLevel1Highscore ()
     {
-        ;
+
+        //If this is the first time that level1 is being played or this time player's score is more than last highest score, update level1's highscore
+
+        if (PlayerPrefs.HasKey("Level1Highscore") == false || PlayerPrefs.GetFloat("Level1Highscore") < ScoreManager.Instance.Score)
+            PlayerPrefs.SetFloat("Level1Highscore", ScoreManager.Instance.Score);
+
+
+
+        //if (PlayerPrefs.HasKey("Level1Highscore") == true)
+        //{
+        //    if (PlayerPrefs.GetFloat("Level1Highscore") < ScoreManager.Instance.Score)
+        //    {
+                
+        //    }
+
+        //} else { PlayerPrefs.SetFloat("Level1Highscore", ScoreManager.Instance.Score); }
+
+        PlayerPrefs.Save();
+            
     }
 }
